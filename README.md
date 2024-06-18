@@ -116,6 +116,6 @@ Report Generation: Reports are generated on-demand, reflecting the most recent d
 **Client:** JavaScript, Google Charts,HTML/CSS
 
 **Server:** Apache Kafka, Apache Spark (PySpark),Apache Cassandra,Flask,MySQL,Python
-![Screenshot (48)](https://github.com/Hardikyadav083/Real-Time-Processing-System-Pyspark-kafka-cassandra-/assets/137992065/b56e2683-1435-437f-bedc-3b295a39b45e)
+![Dashboard Before update](https://github.com/Hardikyadav083/Real-Time-Processing-System-Pyspark-kafka-cassandra-/assets/137992065/d95d7810-dfc8-4a83-b07e-e80baf11dcce)
 
-
+![Dashboard After Upadte](https://github.com/Hardikyadav083/Real-Time-Processing-System-Pyspark-kafka-cassandra-/assets/137992065/8e79664a-b104-4b23-93c4-39624a40a4d4)
