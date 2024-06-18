@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .navbar-brand {
+            font-size: 25px;
+            margin-left: 10px;
+        }
+        .form-control.light-text {
+            color: lightgray;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulse animation for the signup button */
+        @keyframes pulseAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Shake animation for the error message */
+        @keyframes shakeAnimation {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25%, 75% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        /* Apply the floating animation to the image */
+        .image-container {
+            animation: floatAnimation 2s infinite;
+        }
+
+        /* Apply the pulse animation to the signup button */
+        .login-button-signup {
+            animation: pulseAnimation 1.5s infinite;
+        }
+
+        /* Apply the shake animation to the error message */
+        .alert-danger {
+            animation: shakeAnimation 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Bounce animation for the logo */
+        @keyframes bounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Slide-in animation for the form */
+        @keyframes slideInAnimation {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        body {
+            animation: fadeInAnimation 1.5s ease-in-out;
+        }
+
+        /* Apply the bounce animation to the logo */
+        .logo {
+            animation: bounceAnimation 2s infinite;
+        }
+
+        /* Apply the slide-in animation to the form */
+        .form-container-signup {
+            animation: slideInAnimation 1s ease-in-out;
+        }
+    </style>
+
+    <title>EcomStream</title>
+    
+  </head>
+  <body class="bg-nav">
+    <nav class="navbar bg-nav">
+        <a href="#" class="navbar-brand text-light">
+            <img src="static\images\logo.jpg" class="logo"> EcomStream
+        </a>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="image-container">
+                    <img src="\static\images\image1.jpg" class="image" alt="Image">
+                </div>
+                <div class="quote-container">
+                    <p class="quote">Ready to harness the exciting world of big data analytics? Don't miss out on this thrilling opportunity.</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card-body form-container-signup">
+                <h3 class="user-login">New User</h3>
+                {% if error_message and request.method == 'POST' %}
+                <div class="alert alert-danger">{{ error_message }}</div>
+                {% endif %}
+                <form class="form" method='POST' action="/register">
+                    <label class="mb-2">Full Name</label><br>
+                    <input type="text" class="form-control red-border" name="ufname"><br>
+                    <label class="mb-2">Email</label><br>
+                    <input type="email" class="form-control red-border "name="uemail"><br>
+                    <label class="mb-2">Password</label><br>
+                    <input type="password" class="form-control red-border" name="upassword"><br><br>
+                    <input type="submit" class="btn btn-primary btn-block btn-lg login-button-signup" value="Sign up">
+                </form>
+                <p class="mt-2">Already have account ? <a href="/login">Login</a></p>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  </body>
+</html>
